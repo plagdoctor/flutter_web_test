@@ -1,0 +1,9 @@
+                      if (widget.isFollowed)
+                        SizedBox(
+                          width: 100,
+                          child: GestureDetector(
+                            onTap: _onClickFollow,
+                            child: FollowButton(
+                                isFollowed: followSwitch, buttonText: 'Follow'),
+                          ),
+                        ),
