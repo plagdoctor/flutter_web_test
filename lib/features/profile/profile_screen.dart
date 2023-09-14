@@ -1,6 +1,7 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktok_challenge/constants/Gaps.dart';
 import 'package:tiktok_challenge/constants/sizes.dart';
 import 'package:tiktok_challenge/features/settings/settings_screen.dart';
@@ -8,6 +9,7 @@ import 'package:tiktok_challenge/ui/AuthButton.dart';
 
 class ProfileScreen extends StatefulWidget {
   static String routeName = "/profile";
+  static String routeURL = "/profile";
   const ProfileScreen({super.key});
 
   @override
@@ -16,11 +18,12 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   void _onNextPage(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const SettingScreen(),
-      ),
-    );
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (context) => const SettingScreen(),
+    //   ),
+    // );
+    context.push(SettingScreen.routeName);
   }
 
   @override
@@ -750,7 +753,7 @@ class CustomDelegate extends SliverPersistentHeaderDelegate {
                       ),
                     ),
                   ),
-                  Gaps.h10,
+                  Gaps.h4,
                   Container(
                     padding: const EdgeInsets.symmetric(
                       vertical: Sizes.size10,

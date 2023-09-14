@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_challenge/constants/Gaps.dart';
 import 'package:tiktok_challenge/constants/Sizes.dart';
 import 'package:tiktok_challenge/features/main_navigation/widgets/report_screen.dart';
+import 'package:tiktok_challenge/util/utils.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "/home";
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: SvgPicture.asset(
                         height: 40,
                         'assets/icons/Inlined_logo.svg',
-                        color: Colors.black,
+                        color: isDarkMode(context) ? null : Colors.black45,
                       ),
                       iconSize: 2,
                     ),
@@ -81,17 +82,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Colors.black,
+                                      color: isDarkMode(context)
+                                          ? null
+                                          : Colors.black,
                                       border: Border.all(
-                                          color: Colors.white, width: 3),
+                                          color: isDarkMode(context)
+                                              ? Colors.black
+                                              : Colors.white,
+                                          width: 3),
                                       borderRadius:
                                           BorderRadius.circular(Sizes.size48),
                                     ),
                                     height: 30,
                                     width: 30,
-                                    child: const Center(
+                                    child: Center(
                                       child: FaIcon(FontAwesomeIcons.plus,
-                                          color: Colors.white,
+                                          color: isDarkMode(context)
+                                              ? null
+                                              : Colors.black45,
                                           size: Sizes.size16),
                                     ),
                                   ),
@@ -107,7 +115,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       VerticalDivider(
                                         width: Sizes.size40,
                                         thickness: Sizes.size3,
-                                        color: Colors.grey.shade300,
+                                        color: isDarkMode(context)
+                                            ? null
+                                            : Colors.grey.shade300,
                                         indent: Sizes.size12,
                                         endIndent: Sizes.size32,
                                       ),
@@ -117,8 +127,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
 
                               //여기까지가 종료
-                              const Divider(
-                                color: Colors.black45,
+                              Divider(
+                                color:
+                                    isDarkMode(context) ? null : Colors.black45,
                                 height: 1,
                                 thickness: 0.3,
                                 endIndent: 0, // 텍스트 전의 간격
@@ -140,10 +151,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Gaps.h4,
-                                          const Text(
+                                          Text(
                                             'shityoushouldcareabout',
                                             style: TextStyle(
-                                              color: Colors.black,
+                                              color: isDarkMode(context)
+                                                  ? null
+                                                  : Colors.black,
                                               fontSize: Sizes.size14,
                                               fontWeight: FontWeight.w700,
                                             ),
@@ -159,12 +172,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Gaps.h4,
-                                          const Text(
+                                          Text(
                                             '2h',
                                             style: TextStyle(
                                               fontSize: Sizes.size16,
                                               fontWeight: FontWeight.w500,
-                                              color: Colors.black54,
+                                              color: isDarkMode(context)
+                                                  ? null
+                                                  : Colors.black54,
                                             ),
                                           ),
                                           Gaps.h20,
@@ -177,10 +192,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       )
                                     ],
                                   ),
-                                  const Text(
+                                  Text(
                                     'Vine after seeing the Threads logo unveiled if you\'re reading this, go whater that thirsty plant',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: isDarkMode(context)
+                                          ? null
+                                          : Colors.black,
                                       fontSize: Sizes.size14,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -200,30 +217,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                   ),
-                                  const Row(
+                                  Row(
                                     children: [
                                       FaIcon(
                                         FontAwesomeIcons.heart,
                                         size: Sizes.size20,
-                                        color: Colors.black87,
+                                        color: isDarkMode(context)
+                                            ? null
+                                            : Colors.black87,
                                       ),
                                       Gaps.h10,
                                       FaIcon(
                                         FontAwesomeIcons.comment,
                                         size: Sizes.size20,
-                                        color: Colors.black87,
+                                        color: isDarkMode(context)
+                                            ? null
+                                            : Colors.black87,
                                       ),
                                       Gaps.h10,
                                       FaIcon(
                                         FontAwesomeIcons.arrowsRotate,
                                         size: Sizes.size20,
-                                        color: Colors.black87,
+                                        color: isDarkMode(context)
+                                            ? null
+                                            : Colors.black87,
                                       ),
                                       Gaps.h10,
                                       FaIcon(
                                         FontAwesomeIcons.paperPlane,
                                         size: Sizes.size20,
-                                        color: Colors.black87,
+                                        color: isDarkMode(context)
+                                            ? null
+                                            : Colors.black87,
                                       ),
                                       Gaps.h10,
                                     ],
@@ -298,21 +323,23 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           Gaps.h40,
-                          const Text(
+                          Text(
                             '36 replies',
                             style: TextStyle(
                               fontSize: Sizes.size16 + Sizes.size2,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
+                              color:
+                                  isDarkMode(context) ? null : Colors.black54,
                             ),
                           ),
                           Gaps.h10,
-                          const Text(
+                          Text(
                             '391 likes',
                             style: TextStyle(
                               fontSize: Sizes.size16 + Sizes.size2,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
+                              color:
+                                  isDarkMode(context) ? null : Colors.black54,
                             ),
                           ),
                         ],
@@ -321,8 +348,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
 
                   //여기까지가 종료
-                  const Divider(
-                    color: Colors.black45,
+                  Divider(
+                    color: isDarkMode(context) ? null : Colors.black45,
                     height: 1,
                     thickness: 0.3,
                     endIndent: 0, // 텍스트 전의 간격
@@ -357,7 +384,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Colors.black,
+                                      color: isDarkMode(context)
+                                          ? null
+                                          : Colors.black,
                                       border: Border.all(
                                           color: Colors.white, width: 3),
                                       borderRadius:
@@ -365,9 +394,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     height: 30,
                                     width: 30,
-                                    child: const Center(
+                                    child: Center(
                                       child: FaIcon(FontAwesomeIcons.plus,
-                                          color: Colors.white,
+                                          color: isDarkMode(context)
+                                              ? null
+                                              : Colors.white,
                                           size: Sizes.size16),
                                     ),
                                   ),
@@ -383,7 +414,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       VerticalDivider(
                                         width: Sizes.size40,
                                         thickness: Sizes.size3,
-                                        color: Colors.grey.shade300,
+                                        color: isDarkMode(context)
+                                            ? null
+                                            : Colors.grey.shade300,
                                         indent: Sizes.size1,
                                         endIndent: Sizes.size20,
                                       ),
@@ -408,10 +441,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Gaps.h4,
-                                          const Text(
+                                          Text(
                                             'pubity',
                                             style: TextStyle(
-                                              color: Colors.black,
+                                              color: isDarkMode(context)
+                                                  ? null
+                                                  : Colors.black,
                                               fontSize: Sizes.size14,
                                               fontWeight: FontWeight.w700,
                                             ),
@@ -427,12 +462,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Gaps.h4,
-                                          const Text(
+                                          Text(
                                             '2m',
                                             style: TextStyle(
                                               fontSize: Sizes.size16,
                                               fontWeight: FontWeight.w500,
-                                              color: Colors.black54,
+                                              color: isDarkMode(context)
+                                                  ? null
+                                                  : Colors.black54,
                                             ),
                                           ),
                                           Gaps.h20,
@@ -445,10 +482,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       )
                                     ],
                                   ),
-                                  const Text(
+                                  Text(
                                     'Vine after seeing the Threads logo unveiled',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: isDarkMode(context)
+                                          ? null
+                                          : Colors.black,
                                       fontSize: Sizes.size14,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -567,21 +606,23 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           Gaps.h40,
-                          const Text(
+                          Text(
                             '36 replies',
                             style: TextStyle(
                               fontSize: Sizes.size16 + Sizes.size2,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
+                              color:
+                                  isDarkMode(context) ? null : Colors.black54,
                             ),
                           ),
                           Gaps.h10,
-                          const Text(
+                          Text(
                             '391 likes',
                             style: TextStyle(
                               fontSize: Sizes.size16 + Sizes.size2,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
+                              color:
+                                  isDarkMode(context) ? null : Colors.black54,
                             ),
                           ),
                         ],
@@ -590,8 +631,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ]),
               ),
-              const Divider(
-                color: Colors.black45,
+              Divider(
+                color: isDarkMode(context) ? null : Colors.black45,
                 height: 1,
                 thickness: 0.3,
                 endIndent: 0, // 텍스트 전의 간격

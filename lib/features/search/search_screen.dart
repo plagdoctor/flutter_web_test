@@ -4,8 +4,8 @@ import 'package:tiktok_challenge/constants/Sizes.dart';
 import 'package:tiktok_challenge/features/search/widgets/FollowList.dart';
 
 class SearchScreen extends StatefulWidget {
-  static String routeName = "/discover";
-  static const routeURL = "/discover";
+  static String routeName = "/search";
+  static const routeURL = "/search";
   const SearchScreen({super.key});
 
   @override

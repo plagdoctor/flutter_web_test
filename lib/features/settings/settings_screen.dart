@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok_challenge/features/settings/privacy_screen.dart';
+import 'package:tiktok_challenge/features/settings/view_models/setting_config_vm.dart';
 
 class SettingScreen extends StatefulWidget {
+  static String routeName = "/settings";
+  static const routeURL = "/settings";
   const SettingScreen({super.key});
 
   @override
@@ -12,11 +17,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   void _onNextPage(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const PrivacyScreen(),
-      ),
-    );
+    context.push(PrivacyScreen.routeName);
   }
 
   @override
@@ -27,6 +28,12 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
       body: ListView(
         children: [
+          SwitchListTile.adaptive(
+            value: context.watch<SettingConfigViewModel>().darkmode,
+            onChanged: (value) =>
+                context.read<SettingConfigViewModel>().setDarkMode(value),
+            title: const Text("dark mode"),
+          ),
           const ListTile(
             leading: FaIcon(FontAwesomeIcons.person),
             title: Text('Follow and invite friends'),

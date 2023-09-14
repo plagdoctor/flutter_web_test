@@ -3,6 +3,8 @@ import 'package:tiktok_challenge/constants/Sizes.dart';
 import 'package:tiktok_challenge/features/activity/widgets/ActivityList.dart';
 
 class ActivityScreen extends StatefulWidget {
+  static String routeName = "/activity";
+  static const routeURL = "/activity";
   const ActivityScreen({super.key});
 
   @override

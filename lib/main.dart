@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tiktok_challenge/constants/sizes.dart';
+import 'package:tiktok_challenge/features/settings/repos/setting_config_repos.dart';
+import 'package:tiktok_challenge/features/settings/view_models/setting_config_vm.dart';
 import 'package:tiktok_challenge/router.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  final preferences = await SharedPreferences.getInstance();
+  final repository = SettingConfigRepository(preferences);
+
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => SettingConfigViewModel(repository),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +27,17 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
       debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
-      themeMode: ThemeMode.system,
+      themeMode: context.watch<SettingConfigViewModel>().darkmode
+          ? ThemeMode.dark
+          : ThemeMode.light,
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.grey.shade900,
+        ),
+        primaryColor: const Color(0xFFE9435A),
+      ),
       theme: ThemeData(
         useMaterial3: true,
         textTheme: Typography.blackMountainView,

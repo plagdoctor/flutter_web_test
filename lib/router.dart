@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tiktok_challenge/features/activity/activity_screen.dart';
 import 'package:tiktok_challenge/features/main_navigation/Main_navigation_screen.dart';
+import 'package:tiktok_challenge/features/profile/profile_screen.dart';
+import 'package:tiktok_challenge/features/search/search_screen.dart';
+import 'package:tiktok_challenge/features/settings/privacy_screen.dart';
+import 'package:tiktok_challenge/features/settings/settings_screen.dart';
 import 'package:tiktok_challenge/features/video/video_write_screen.dart';
-import 'package:tiktok_challenge/house/home_screen.dart';
-import 'package:tiktok_challenge/login/InterestsScreen.dart';
 import 'package:tiktok_challenge/login/InterestsScreenPart2.dart';
 import 'package:tiktok_challenge/login/LoginScreen.dart';
 
@@ -15,9 +18,29 @@ final router = GoRouter(
       builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
-      name: InterestsScreen.routeName,
-      path: InterestsScreen.routeURL,
-      builder: (context, state) => const InterestsScreen(),
+      name: SearchScreen.routeName,
+      path: SearchScreen.routeURL,
+      builder: (context, state) => const SearchScreen(),
+    ),
+    GoRoute(
+      name: ActivityScreen.routeName,
+      path: ActivityScreen.routeURL,
+      builder: (context, state) => const ActivityScreen(),
+    ),
+    GoRoute(
+      name: ProfileScreen.routeName,
+      path: ProfileScreen.routeURL,
+      builder: (context, state) => const ProfileScreen(),
+    ),
+    GoRoute(
+      name: SettingScreen.routeName,
+      path: SettingScreen.routeURL,
+      builder: (context, state) => const SettingScreen(),
+    ),
+    GoRoute(
+      name: PrivacyScreen.routeName,
+      path: PrivacyScreen.routeURL,
+      builder: (context, state) => const PrivacyScreen(),
     ),
     GoRoute(
       name: InterestsScreenPart2.routeName,

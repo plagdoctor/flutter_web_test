@@ -9,7 +9,8 @@ import 'package:tiktok_challenge/features/main_navigation/Write_screen.dart';
 import 'package:tiktok_challenge/features/main_navigation/widgets/nav_tab.dart';
 import 'package:tiktok_challenge/features/profile/profile_screen.dart';
 import 'package:tiktok_challenge/features/search/search_screen.dart';
-import 'package:tiktok_challenge/house/home_screen.dart';
+import 'package:tiktok_challenge/home/home_screen.dart';
+import 'package:tiktok_challenge/util/utils.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   static const String routeName = "mainNavigation";
@@ -36,7 +37,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   late int _selectedIndex = _tabs.indexOf(widget.tab);
 
   void _onTap(int index) {
-    context.go("/${_tabs[index]}");
+    context.push("/${_tabs[index]}");
     setState(() {
       _selectedIndex = index;
     });
@@ -48,7 +49,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
         isScrollControlled: true,
         context: context,
-        backgroundColor: Colors.transparent,
+        backgroundColor: isDarkMode(context) ? null : Colors.transparent,
         builder: (context) => const WriteScreen());
   }
 
@@ -78,7 +79,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         ],
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        // color: isDarkMode(context) ? null : Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(Sizes.size12),
           child: Row(

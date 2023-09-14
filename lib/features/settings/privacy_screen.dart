@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_challenge/constants/Sizes.dart';
 
 class PrivacyScreen extends StatefulWidget {
+  static String routeName = "/settings/privacy";
+  static const routeURL = "/settings/privacy";
   const PrivacyScreen({super.key});
 
   @override
