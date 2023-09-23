@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1076717578996",
+    "project_id": "tiktokchel-abc-xyz",
+    "storage_bucket": "tiktokchel-abc-xyz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076717578996:android:5f05dc7ece96f7790dcca1",
+        "android_client_info": {
+          "package_name": "com.example.tiktok_challenge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf8EtBy_LXonlIeQyZXxffvdQo64GG-qY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

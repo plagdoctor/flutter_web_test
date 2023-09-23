@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tiktok_challenge/constants/Gaps.dart';
 import 'package:tiktok_challenge/constants/Sizes.dart';
-import 'package:tiktok_challenge/login/LoginScreen.dart';
 import 'package:tiktok_challenge/login/widgets/InterestButton.dart';
 import 'package:tiktok_challenge/ui/AuthButtonWithEnable.dart';
 
@@ -67,8 +66,8 @@ const entertainmentInterests = [
 ];
 
 class InterestsScreenPart2 extends StatefulWidget {
-  static String routeName = "/";
-  static const routeURL = "/";
+  static String routeName = "/interest2";
+  static const routeURL = "/interest2";
   const InterestsScreenPart2({super.key});
 
   @override

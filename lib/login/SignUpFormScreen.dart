@@ -9,6 +9,8 @@ import 'package:tiktok_challenge/ui/AuthButton.dart';
 import 'package:tiktok_challenge/ui/FormButton.dart';
 
 class SignUpFormScreen extends StatefulWidget {
+  static const routeURL = "/oldsignup";
+  static const routeName = "/oldsignup";
   const SignUpFormScreen({super.key});
 
   @override

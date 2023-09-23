@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:tiktok_challenge/constants/Gaps.dart';
 import 'package:tiktok_challenge/constants/sizes.dart';
 import 'package:tiktok_challenge/features/settings/settings_screen.dart';
-import 'package:tiktok_challenge/ui/AuthButton.dart';
 
 class ProfileScreen extends StatefulWidget {
   static String routeName = "/profile";

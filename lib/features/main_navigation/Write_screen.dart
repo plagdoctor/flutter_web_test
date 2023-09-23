@@ -3,22 +3,24 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tiktok_challenge/constants/Gaps.dart';
 import 'package:tiktok_challenge/constants/Sizes.dart';
-import 'package:tiktok_challenge/features/video/video_preview_screen.dart';
 import 'package:tiktok_challenge/features/video/video_write_screen.dart';
+import 'package:tiktok_challenge/features/video/view_models/upload_video_vm.dart';
 
-class WriteScreen extends StatefulWidget {
+class WriteScreen extends ConsumerStatefulWidget {
   final String? title;
 
   const WriteScreen({Key? key, this.title}) : super(key: key);
 
   @override
-  State<WriteScreen> createState() => _WriteScreenState();
+  WriteScreenState createState() => WriteScreenState();
 }
 
-class _WriteScreenState extends State<WriteScreen> {
+class WriteScreenState extends ConsumerState<WriteScreen> {
   String _thread = "";
   XFile? _photoFile;
 
@@ -47,6 +49,29 @@ class _WriteScreenState extends State<WriteScreen> {
         _photoFile = returnedPhoto;
       });
     }
+  }
+
+  Future<void> _onPickVideoPressed() async {
+    final video = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+    if (video == null) return;
+
+    if (!mounted) return;
+    setState(() {
+      _photoFile = video;
+    });
+  }
+
+  Future<void> _upload() async {
+    if (_photoFile == null) return;
+
+    File file = File(_photoFile!.path);
+    ref.read(uploadVideoProvider.notifier).uploadVideo(file, context, _thread);
+
+    setState(() {});
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -142,7 +167,8 @@ class _WriteScreenState extends State<WriteScreen> {
                           ),
                           Gaps.v10,
                           GestureDetector(
-                            onTap: () => _pushToCamera(context),
+                            // onTap: () => _pushToCamera(context),
+                            onTap: _onPickVideoPressed,
                             child: const FaIcon(
                               FontAwesomeIcons.paperclip,
                               color: Colors.black38,
@@ -178,12 +204,16 @@ class _WriteScreenState extends State<WriteScreen> {
                       const Expanded(
                         child: Text("anyone can reply"),
                       ),
-                      Text(
-                        "Post",
-                        style: TextStyle(
-                          fontSize: Sizes.size14,
-                          fontWeight: FontWeight.w600,
-                          color: _thread.length > 8 ? Colors.blue : Colors.grey,
+                      GestureDetector(
+                        onTap: _upload,
+                        child: Text(
+                          "Post",
+                          style: TextStyle(
+                            fontSize: Sizes.size14,
+                            fontWeight: FontWeight.w600,
+                            color:
+                                _thread.length > 8 ? Colors.blue : Colors.grey,
+                          ),
                         ),
                       )
                     ],

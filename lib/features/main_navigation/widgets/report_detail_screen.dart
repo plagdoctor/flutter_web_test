@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_challenge/constants/Gaps.dart';
 import 'package:tiktok_challenge/constants/Sizes.dart';
 
 class ReportDetailScreen extends StatefulWidget {

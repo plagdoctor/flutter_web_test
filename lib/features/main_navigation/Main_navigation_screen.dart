@@ -9,11 +9,12 @@ import 'package:tiktok_challenge/features/main_navigation/Write_screen.dart';
 import 'package:tiktok_challenge/features/main_navigation/widgets/nav_tab.dart';
 import 'package:tiktok_challenge/features/profile/profile_screen.dart';
 import 'package:tiktok_challenge/features/search/search_screen.dart';
-import 'package:tiktok_challenge/home/home_screen.dart';
+import 'package:tiktok_challenge/home/real_home_screen.dart';
 import 'package:tiktok_challenge/util/utils.dart';
 
 class MainNavigationScreen extends StatefulWidget {
-  static const String routeName = "mainNavigation";
+  static const String routeName = "/mainNavigation";
+  static const String routeUrl = "/mainNavigation";
   final String tab;
 
   const MainNavigationScreen({
@@ -61,7 +62,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         children: [
           Offstage(
             offstage: _selectedIndex != 0,
-            child: const HomeScreen(),
+            child: const RealHomeScreen(),
           ),
           Offstage(offstage: _selectedIndex != 1, child: const SearchScreen()),
           Offstage(
